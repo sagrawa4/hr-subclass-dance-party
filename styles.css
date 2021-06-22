@@ -5,11 +5,12 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  max-width: fit-content;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+.title, .addDancerButton1{
   padding:5px 12px;
   float:right;
 }
@@ -20,8 +21,41 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
+
+.title, .addDancerButton2{
+  padding:5px 12px;
+  float:right;
+}
+
+.title, .addDancerButton3{
+  padding:5px 12px;
+  float:right;
+}
+
+.title, .addLineupButton{
+  padding:5px 12px;
+  float:right;
+}
+
+.dancer1{
+  border:10px solid rgb(145, 83, 196);
+  border-radius:10px;
+  position:absolute;
+}
+
+.dancer2{
+  width: 0;
+  height: 0;
+  border-left: 10x solid transparent;
+  border-right: 10px solid transparent;
+  border:10px solid yellow;
+  position:absolute;
+
+}
+
+.dancer3{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
 }
+

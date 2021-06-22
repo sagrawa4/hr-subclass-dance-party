@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
   window.dancers = [];
 
-  $('.addDancerButton1').on('click', function(event) {
+  $('.addDancerButton1').on('click', function (event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
      * As long as the "data-dancer-maker-function-name" attribute of a
@@ -17,6 +17,7 @@ $(document).ready(function() {
      */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
+    //window.dancers.push(dancerMakerFunctionName);
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
@@ -28,34 +29,54 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
   });
 
-  $('.addDancerButton2').on('click', function(event) {
-    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+  /* pop dancer */
 
+  $('.addDancerButton2').on('click', function (event) {
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+    //window.dancers.push(dancerMakerFunctionName);
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
 
-    var dancer = new dancerMakerFunction(
+    var popDancer = new dancerMakerFunction(
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
-    $('body').append(dancer.$node);
+    $('body').append(popDancer.$node);
+    // added popdancer push
+    window.dancers.push(popDancer);
+
   });
 
-  $('.addDancerButton3').on('click', function(event) {
+  /* super Hero dancer */
+
+  $('.addDancerButton3').on('click', function (event) {
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+    //window.dancers.push(dancerMakerFunctionName);
 
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
-
-    var dancer = new dancerMakerFunction(
+    var superHeroDancer = new dancerMakerFunction(
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
-    $('body').append(dancer.$node);
+    $('body').append(superHeroDancer.$node);
+    // added superherodancer push
+    window.dancers.push(superHeroDancer);
+
   });
+
+
+  $('.addLineupButton').on('click', function (event) {
+    for (var i = 0; i < window.dancers.length; i++) {
+      // changed to left
+      window.dancers[i].$node.css({ 'left': 0 });
+    }
+
+  });
+
 });
-
